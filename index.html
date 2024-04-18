@@ -6,15 +6,54 @@
         <title>Billion Row Challenge</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+        <style>
+            
+
+            div {
+                margin: auto;
+                width: 50%;
+                text-align: center;
+            }
+
+            table, tr, td {
+                text-align: center;
+                margin: auto;
+                padding: 8px;
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            th {
+                text-align: center;
+                margin: auto;
+                padding: 8px;
+            }
+
+            #info {
+                border: 2px grey;
+            }
+        </style>
     </head>
     <body>
-        <button id="button">Get my data!</button>
-        
-        <div id="info">
-
+        <br><br><br>
+        <div id="buttonDiv">
+            <button id="button">Get my data!</button>
         </div>
-
+        <br><br>
+        <table id="info">
+            <tr>
+                <th>name</th>
+                <th>lat</th>
+                <th>lon</th>
+                <th>heading</th>
+                <th>sum</th>
+                <th>n</th>
+                <th>min</th>
+                <th>max</th>
+                <th>mean</th>
+                <th>verif</th>
+            </tr>
+        </table>
     
         <script src="index.js" async defer></script>
     </body>

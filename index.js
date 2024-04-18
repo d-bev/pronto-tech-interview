@@ -10,19 +10,17 @@ Display all the key metrics as explained in Part 1, along with the number of dat
 BONUS PROBLEM:
 
 Visualize a name as its Latitude/Longitude/Heading change. 
-    - Animate a sprite as these values change 
-    - Design and implementation completely up to you. 
-    - Not doing this portion is not a penalty in anyway, but be prepared to explain approaches that you might take to implement this.
+  - Animate a sprite as these values change 
+  - Design and implementation completely up to you. 
+  - Not doing this portion is not a penalty in anyway, but be prepared to explain approaches that you might take to implement this.
 */
 
 
-// Get the button and container from HTML:
 const button = document.getElementById("button")
 const data = document.getElementById("info")
 
-// Create an event listener on the button element:
+
 button.onclick= function(){
-    
     // Get the receiver endpoint from Python using fetch:
     fetch("http://127.0.0.1:5000/receiver", 
         {
@@ -32,22 +30,47 @@ button.onclick= function(){
                 'Accept': 'application/json'
             }
         }).then(res=>{
+            // Did we recieve a Promise?
             if(res.ok){
                 return res.json()
             }else{
                 alert("Something is wrong!")
             }
         }).then(jsonResponse=>{
+
+          var th =  "<tr> \
+                      <th>name</th> \
+                      <th>lat</th>  \
+                      <th>lon</th>  \
+                      <th>heading</th>  \
+                      <th>sum</th>  \
+                      <th>n</th>  \
+                      <th>min</th>  \
+                      <th>max</th>  \
+                      <th>mean</th> \
+                      <th>verif</th>  \
+                    </tr>"
+
+          var new_data = "<tr>"
+          
+          // un-nest the dict to create the entries for the HTML table
           Object.keys(jsonResponse).map(function(item){
-              data.innerHTML += "<p>" + item + "</p>"
-              console.log(item)
+            
+            new_data += "<td>" + item.toString() + "</td>"
+
+            // 'item' is the 'name', so now we grab all values attached to each 'name'
+            var key = jsonResponse[item]
+            Object.values(key).map(function(item2){
+              new_data += "<td>" + item2.toString() + "</td>"
+            })
+            new_data += "</tr>"
           })
+
+          // Update the HTML
+          data.innerHTML = th + new_data          
         })
     .catch((err) => console.error(err)); 
-} 
-
-
-
+}
 /*
 THOUGHTS ON THE BONUS PROBLEM:
 

@@ -1,0 +1,29 @@
+
+META / PLANNING:
+
+If frontend is going to spam back-end with GET requests:
+    put the GET request function on a timer
+    make the backend function run once per GET request
+    have this data display on the webpage
+    implement logic within the frontend to handle the 'top 10' portion of the problem:
+        "Display the top 10 sorted by maximum 'measurement', descending."
+
+IDEAS:
+    make the frontend a REACT app
+
+        have the backend run continuously and constantly update its nested dict
+        use REACT hooks to handle the constant updates made to the nested dict
+            have some code on the backend that more or less does:
+
+        OR 
+
+        have the backend run continuously and constantly spit the entries it makes at the frontend
+        use REACT hooks to update the state with the constant stream of info
+
+    maintain the same structure that I have
+
+
+
+TASKS:
+
+    have backend actually display data on the frontend that's coming from the server
