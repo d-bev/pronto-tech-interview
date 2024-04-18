@@ -24,6 +24,17 @@ IDEAS:
 
 
 
-TASKS:
+IMPROVEMENTS I'D LIKE TO MAKE:
 
-    have backend actually display data on the frontend that's coming from the server
+    write dict to a JSON file, so we can load it each main() call:
+        read the dict
+        accept another batch of messages
+        update the dict
+        send the updated data to the frontend
+
+    Change frontend:
+        have the GET request trigger when the page is done loading
+        send another GET request as soon as we're done displaying the response on the webpage
+            this would probably just be having the "onload" handler call itself when it was done
+            I would also make the batch size smaller, so the data being displayed on the frontend is closer to real-time
+
